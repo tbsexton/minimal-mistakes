@@ -7,18 +7,18 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
-title_separator          : "-"
+title                    : "Thurston Sexton"
+title_separator          : "|"
 name                     : "Thurston Sexton"
-description              : "An amazing website."
+description              : "Wanderings in Mechanics, Machine Learning, and Anthropological inquiry. And Python."
 url                      : "https://tbsexton.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "tbsexton/tbsexton.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-# breadcrumbs            : false # true, false (default)
+teaser                   : "/assets/images/graph.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -28,22 +28,22 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "master"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "docs/_data/comments/{options.slug}" # "/_data/comments/{options.slug}" (default)
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+  staticman:
+    allowedFields          : ['name', 'email', 'url', 'message']
+    branch                 : "master"
+    commitMessage          : "New comment."
+    filename               : comment-{@timestamp}
+    format                 : "yml"
+    moderation             : true
+    path                   : "docs/_data/comments/{options.slug}" # "/_data/comments/{options.slug}" (default)
+    requiredFields         : ['name', 'email', 'message']
+    transforms:
+      email                : "md5"
+    generatedFields:
+      date:
+        type               : "date"
+        options:
+          format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
@@ -66,7 +66,9 @@ og_image                 : # Open Graph/Twitter default site image
 social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  links:
+    - https://www.linkedin.com/thurstonsextoniv # An array of links to social media profiles
+    - https://www.nist.gov/people/thurston-sexton
 
 # Analytics
 analytics:
@@ -78,7 +80,7 @@ analytics:
 # Site Author
 author:
   name             : "Thurston Sexton"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/linkedprof.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Mechanical Engineer and Informatics Researcher @NIST SID"
   location         : "Gaithersburg, MD"
   email            : "thurston.sexton@nist.gov"
@@ -240,7 +242,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: # true
       share: true
       related: true
