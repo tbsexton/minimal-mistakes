@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Thurston Sexton"
+title                    : "Archaeo|Engineer"
 title_separator          : "|"
 name                     : "Thurston Sexton"
 description              : "Wanderings in Mechanics, Machine Learning, and Anthropological inquiry. And Python."
@@ -186,6 +186,7 @@ gems:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-github-metadata
 
 # mimic GitHub Pages with --safe
 whitelist:
