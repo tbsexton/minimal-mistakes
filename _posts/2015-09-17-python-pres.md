@@ -1,9 +1,7 @@
 ---
-id: 660
 title: 'Presentation: Using IPython+Friends'
 date: 2015-09-17T18:41:06+00:00
 author: Thurston
-layout: post
 portfolio-category:
   - Archaeology/Anthropology
   - Engineering

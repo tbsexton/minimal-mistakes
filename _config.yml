@@ -10,18 +10,18 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
+theme                    : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "default" , "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en"
+locale                   : "en-US"
 title                    : "Archaeo|Engineer"
 title_separator          : "|"
-name                     : "Thurston Sexton"
+name                     : &name "Thurston Sexton"
 description              : "Wanderings in Mechanics, Machine Learning, and Anthropological inquiry. And Python."
 url                      : "https://tbsexton.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : "/" # the subpath of your site, e.g. "/blog"
 repository               : "tbsexton/tbsexton.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/graph.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true # true, false (default)
@@ -59,10 +59,6 @@ staticman:
 reCaptcha:
   siteKey                :
   secret                 :
- endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
-reCaptcha:
-  siteKey                :
-  secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : # true, false (default)
@@ -84,7 +80,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : "@ArchaeoEngineer"
+  username               : &twitter "archaeoengineer"
 facebook:
   username               :
   app_id                 :
@@ -96,8 +92,9 @@ social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links:
-    - https://www.linkedin.com/thurstonsextoniv # An array of links to social media profiles
-    - https://www.nist.gov/people/thurston-sexton
+    - "https://www.linkedin.com/thurstonsextoniv" # An array of links to social media profiles
+    - "https://twitter.com/archaeoengineer"
+    - "https://www.nist.gov/people/thurston-sexton"
 
 # Analytics
 analytics:
@@ -109,11 +106,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Thurston Sexton"
+  name             : *name
   avatar           : "/assets/images/linkedprof.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Mechanical Engineer and Informatics Researcher @NIST SID"
+  bio              : "Anachronistic academic adventures"
   location         : "Gaithersburg, MD"
-  email            : "thurston.sexton@nist.gov"
+  email            : "thurston.sexton@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -139,22 +136,22 @@ footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
+      url: "twitter.com/ArchaeoEngineer"
+#    - label: "Facebook"
+#      icon: "fab fa-fw fa-facebook-square"
+#      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://www.github.com/tbsexton"
+#    - label: "GitLab"
+#      icon: "fab fa-fw fa-gitlab"
+#      # url:
+#    - label: "Bitbucket"
+#      icon: "fab fa-fw fa-bitbucket"
+#      # url:
+#    - label: "Instagram"
+#      icon: "fab fa-fw fa-instagram"
+#      # url:
 
 
 # Reading Files
@@ -196,7 +193,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Conversion
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
@@ -296,3 +293,10 @@ defaults:
       comments: # true
       share: true
       related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true

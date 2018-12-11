@@ -1,13 +1,16 @@
 ---
-layout: "post"
 title: "HashStream: Tutorial"
 date: 2016-04-04
-published: false
+published: true
 ---
 
-# HashStream: Tutorial
+_UNDER CONSTRUCTION_
+For a speed-coding competition a while back, I wrote a pure python module for analyzing hashtag graphs from raw Twitter stream data. To follow along, clone the [associated repo](https://github.com/tbsexton/HashStream). You'll need a python installation with a few standard dependencies.
 
-To start, let's import some packages to help us. If you haven't read `README.md`, you should go do that now. I **highly** recommend Continuum Analytics **Anaconda** distribution of python, and the `conda` architecture for finding/installing co-dependent packages. Go explore!
+
+## Quick and Dirty Tweet Networks
+
+To start, let's import some packages to help us. If you haven't read the repo's `README.md`, you should go do that now. I **highly** recommend Continuum Analytics **Anaconda** distribution of python, and the `conda` architecture for finding/installing co-dependent packages. Go explore!
 
 
 ```python
@@ -121,12 +124,13 @@ If we want the average number of hashtags for all tweets in storage, that's easy
 
 ```python
 np.mean([len(i) for i in pre.df.hashtags])
+>>> 0.18547606239913933
 ```
 
 
 
 
-    0.18547606239913933
+    
 
 
 
@@ -136,14 +140,14 @@ This is where things get cool. use `import src.analysis` to get access to the ma
 
 ```python
 import src.analysis as hs
-
 hs.__all__
+>>> ['rolled_graph_gen', 'g_stats', 'draw_lifted', 'get_graphs', 'mean_deg']
 ```
 
 
 
 
-    ['rolled_graph_gen', 'g_stats', 'draw_lifted', 'get_graphs', 'mean_deg']
+
 
 
 
@@ -157,13 +161,10 @@ tweet_no = 4
 
 g = hs.get_graphs(pre.df, tweet_no,tweet_no+1, window=10.)
 print len(g)
+>>> 1
+
 hs.draw_lifted(g[0])
 ```
-
-
-
-    1
-
 
 ![png](./hashstream_tutorial_files/hashstream_tutorial_16_2.png)
 
@@ -178,12 +179,10 @@ tweet_no = 4+100
 
 g = hs.get_graphs(pre.df, tweet_no,tweet_no+1, window=10.)
 print len(g)
+>>> 1
+
 hs.draw_lifted(g[0])
 ```
-
-
-
-    1
 
 
 
@@ -223,9 +222,6 @@ degrees, times = X[:,0], X[:,1]
 
 plt.plot(degrees)
 ```
-
-
-
 
     [<matplotlib.lines.Line2D at 0x7ff60f3c9d10>]
 
@@ -306,12 +302,12 @@ degrees, times = X[:,0], X[:,1]
 
 g = graph_list[np.argmax([degrees])]
 print g.degree().values()
-
-hs.draw_lifted(g)
+>>> [7, 7, 7, 7, 7, 7, 7, 7]
 ```
 
-    [7, 7, 7, 7, 7, 7, 7, 7]
-
+```python
+hs.draw_lifted(g)
+```
 
 
 <!-- ![png](hashstream_tutorial_files/hashstream_tutorial_34_1.png) -->
@@ -321,12 +317,12 @@ hs.draw_lifted(g)
 ```python
 g = graph_list[np.argmin([degrees])]
 print g.degree().values()
-
-hs.draw_lifted(g)
+>>> [1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
-    [1, 1, 1, 1, 1, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-
+```python
+hs.draw_lifted(g)
+```
 
 
 <!-- ![png](hashstream_tutorial_files/hashstream_tutorial_35_1.png) -->
